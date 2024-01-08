@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Tienda</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script type="module" src="./products.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="spinner-waiting"></div>
+    <header class="page-header">
+        <div class="page-title">Tienda</div>
+        <div class="cart-button" id="tDivCartButton">🛒</div>
+        <div class="cart-tabl" id="tDivCartTable">
+            <header>Cesta</header>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Precio</td>
+                    </tr>
+                </thead>
+                <tbody id="tTblBodyCart"></tbody>
+            </table>
+        </div>
+        
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/views/master.htm">Maestro de tablas</a></li>
+            <li><a href="/views/categories.htm">Categorias</a></li>
+            <li><a href="/views/products.htm">Productos</a></li>
+            <li><a href="/views/pdfs.htm">Listados</a></li>
+        </ul>
+    </nav>
+
+    <aside class="ads-left">izq</aside>
+    <aside class="ads-right">der</aside>
+
+    <main>
+        <header>Productos</header>
+
+        <!-- 
+        http://127.0.0.1:5500/views/products.htm
+        Si en la URL no hay ningún código de categoria, 
+        se mostrarátodos los productos 
+        
+        http://127.0.0.1:5500/views/products.htm?category=3
+
+
+        -->
+
+        <table>
+            <thead>
+                <tr title="Me fumo cuatro porros">
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="tTbody">
+                
+            </tbody>
+        </table>
+    </main>
+    <footer>©️ Javier Ibarra 2023</footer>
+</body>
+</html>

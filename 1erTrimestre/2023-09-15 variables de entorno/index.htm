@@ -1,0 +1,103 @@
+<!-- esto seria la raíz del arbol -->
+<html>
+    <!-- esto sería el hijo 1 -->
+    <head>
+
+        <!-- esto sería CSS -->
+        <style>
+            body{
+                background-color: aqua;
+            }
+
+            h1{
+                color: green;
+            }
+
+        </style>
+    </head>
+
+    <!-- esto sería el hijo 2 -->
+    <body>
+        <h1>JAVASCRIPT o ECMASCRIPT</h1>
+        <P>JavaScript es un lenguage que se encuentra en un montón de plataformas.</P>
+        
+        <!-- esto sería JavaScript -->
+        <script>
+            //Si usamos use Script las variables definidas sin las palabras reservadas var, let o const, muestra un error en consola
+            //'use script';
+            document.write("<b>JavaScript</b> se imparte en Desarrollo WEC");
+
+            // esto es una declarión de variable
+            let v;
+            // esto nos mostrará por consola la variable v
+            console.log(v);
+            // esto nos mostrará que tipo de variable es v --> undefined/indefinida
+            console.log(typeof(v));
+            
+            v = 6;
+            // esto nos mostrará que tipo de variable es v --> number/numero
+            console.log(typeof(v));
+            
+            v = 'JavaScript';
+            // esto nos mostrará que tipo de variable es v --> string/cadena
+            console.log(typeof(v));
+            
+            //null y undefined son practicamente lo mismo, el creador de JavaScript explicó que uno de los dos sobraría si volviese a la época en la que creo el lenguaje
+            v = null
+            // esto nos mostrará que tipo de variable es v --> object/objeto
+            console.log(typeof(v));
+            
+            //Aún creando un ARRAY, JS sigue entendiendo que es un objeto
+            v = ['hola', 7.5, false]
+            // esto nos mostrará que tipo de variable es v --> object/objeto
+            console.log(typeof(v));
+            
+            v = {
+                nombre: 'Marta',
+                apellidos: 'García',
+                
+            }
+            // esto nos mostrará que tipo de variable es v --> object/objeto
+            console.log(typeof(v));
+
+            function seis(){
+                return 6;
+            }
+
+            //muestra por consola function/función
+            console.log(typeof(seis));
+            //al poner 'seis()' se ejecuta la funcion que return 6, por eso el tipo que mostrará por consola será number:
+            console.log(typeof(seis()));
+
+
+
+            //DECLARACIÓN DE VARIABLES
+            // hay cuatro formas de declarar variables:
+            //las antiguas: 2009 - ES5
+            edad1 = 18; //PROHIBIDO
+            var edad2 = 18; //PROHIBIDO
+            //las modernas: 2015 - ES6
+            let edad3= 18;
+            const edad4 = 18;
+            
+
+            //function pruebaVariables1(){
+            //    //al declarar esta variable sin declararle var, let o const, la variable nombre se convierte en una variable GLOBAL, no LOCAL.
+            //    nombre = 'Juan';
+            //}
+            ////Aqui saldá un error en la siguiente linea, para que no ocurra debemos de llamar a la función y entonces si nos mostrará lo que queremos
+            ////pruebaVariables1();            
+            //console.log(nombre);
+
+            //function pruebaVariables2(){
+            //    if(true){
+            //        console.log('true');
+            //        console.log(nombre);
+            //    } else {
+            //        var nombre = 'Juan';
+            //    }
+            //}
+            //pruebaVariables2();
+        </script>
+    </body>
+</html>

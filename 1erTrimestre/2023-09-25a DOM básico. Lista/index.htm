@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>
+            Document Object Model 
+        </title>
+    </head>
+    <body>
+        <h1>Continentes</h1>
+        <ul type="square"> <!-- <ul> Unorder list-->
+            <li>África</li> <!-- <li> list item -->
+            <li>América</li>
+            <li>Antártida</li>
+            <li>Asia</li>
+            <li>Europa</li>
+            <li>Oceánia</li>
+        </ul>
+            
+        <h1>Océanos</h1>
+        <ol type="I" id="tOlOceans"> 
+            <!-- <ol> Order List, tipo orden números romanos -->
+            <!-- id: 't' de tag, 'Ol' por la etiqueta en la que estamos '<ol>', 'Oceans' descripción de lo que queremos hacer-->
+            <!-- Los hijos de <ol> los creamos con JS -->
+                        
+        </ol>
+        <script>
+            'use strict';
+                        
+            let nOl = document.getElementById('tOlOceans');
+            let nLi = document.createElement('li');
+            nOl.appendChild(nLi);
+            let nText = document.createTextNode('Atlántico');
+            nLi.appendChild(nText);
+            
+            nLi = document.createElement('li');
+            nOl.appendChild(nLi);
+            nText = document.createTextNode('Pacífico');
+            nLi.appendChild(nText);
+            
+            nLi = document.createElement('li');
+            nOl.appendChild(nLi);
+            nLi.appendChild(document.createTextNode('Indico'));
+
+            nLi = document.createElement('li');
+            nOl.appendChild(nLi);
+            nLi.appendChild(document.createTextNode('Antártico'));
+            
+            nLi = document.createElement('li')
+            nOl.appendChild(nLi);
+            nLi.appendChild(document.createTextNode('Ártico'))
+        </script>
+                    
+    </body>
+</html>
+                    
+                    
+                    
+                    

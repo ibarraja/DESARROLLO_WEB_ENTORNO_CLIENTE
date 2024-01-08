@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="../components/HeaderLoginComponent.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', _ =>{
+            const header = document.getElementById('#tHeadLogin');
+            header.addEventListener('sessionclosed', e => {
+                window.localStorage.removeItem('tHeadLogin');
+                windoe.location = './index.htm';
+            })
+        })
+    </script>
+</head>
+<body>
+    <header-login id="tHeadLogin" button-text="Cerrar sesión"></header-login>
+</body>
+</html>

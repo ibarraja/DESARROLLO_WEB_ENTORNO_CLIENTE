@@ -1,0 +1,67 @@
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+ol{
+    list-style: none;
+}
+
+ol.level-2{
+    display: none;
+}
+
+ol.level-3{
+    display: none;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+/* Muestra el <ol> que es primer hermano de un radio que esta checkeado */
+input[type="radio"]:checked + ol.level-2{
+    display: block;
+    /* animation: show-sublevel 1000ms linear 0ms 1 normal both; */
+}
+
+input[type="radio"]:checked +ol.level-3{
+    display: block;
+}
+
+/* @keyframes show-sublevel {
+    from {
+        height: 0px;
+    } to {
+        height: 100px;
+    }
+    
+} */
+
+
+
+
+
+
+
+
+/* input[type="checkbox"]{
+    display: none;
+} */
+
+/* Muestra el <ol> que es primer hermano de un checkbox que esta checkeado */
+/* input[type="checkbox"]:checked + ol.level-2{
+    display: block;
+} */
+
+/* header{
+    background-color: green;
+    color: white;
+}
+header:hover{
+    background-color: yellow;
+    color: black;
+    transition-duration: 1000ms;
+    transition-property: background-color;
+    transition-property: color;
+} */

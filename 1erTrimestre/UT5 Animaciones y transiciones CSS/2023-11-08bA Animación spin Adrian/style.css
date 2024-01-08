@@ -1,0 +1,62 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    background-color: bisque;
+    display: grid;
+    place-items: center;
+}
+
+.spinner{
+    width: 100px;
+    height: 100px;
+    border-top: solid 10px #c50000;
+    border-radius: 50%;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.spinner::before{
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-top: solid 10px #fc0000;
+    border-radius: 50%;
+    rotate: 0.5turn;
+    animation-name: rotate;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+}
+
+.spinner::after{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}

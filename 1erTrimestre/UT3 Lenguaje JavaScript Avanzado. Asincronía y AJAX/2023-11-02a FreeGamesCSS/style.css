@@ -1,0 +1,148 @@
+:root{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    --header-color: rgb(105, 101, 101);
+    --nav-color: rgb(221, 78, 78);
+    --article-color: orange;
+    --div-color:rgb(63, 185, 63);
+    --footer-color: rgb(18, 18, 141);
+}
+
+
+
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    
+}
+
+table,tr,td{
+    /* margin-top: 2rem;
+    margin-left: 2rem; */
+    padding: 0.4rem;
+    border: solid black 2px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+body{
+    background-color: var(--div-color);
+    margin: 0;
+    min-height:100vh;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-color);
+}
+
+@media all and (max-width: 700px) {
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    
+}
+
+nav {
+    background-color: var(--nav-color);
+}
+
+div{
+    background-color: var(--div-color);
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 1rem;
+    background-color: var(--article-color);
+}
+
+footer{
+    flex-grow: 1;
+    background-color: var(--footer-color);
+    text-transform: uppercase;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+@media all and (min-width: 768px) {
+    body{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: auto 4fr auto; 
+        grid-template-areas: 
+            'header header'
+            'nav main'
+            'footer footer'
+        ;
+
+    }
+    header {
+        grid-area:  header;
+    }
+    main {
+        grid-area: main;
+    }
+    nav {
+        grid-area: nav
+    }
+    footer{
+        grid-area: footer;
+    }
+}
+
+@media all and (min-width: 820px) {
+    body{
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: 120px 4fr 180px; 
+        grid-template-areas: 
+        'header header'
+        'nav main'
+        'footer footer'
+        ;
+        
+    }
+    header {
+        grid-area:  header;
+    }
+    div {
+        grid-area: main;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    nav {
+        grid-area: nav
+    }
+    footer{
+        grid-area: footer;
+    }
+    article{
+        flex: 1;
+    }
+
+    article img{
+        width: 250px;
+        /* height: 100%; */
+    }
+}

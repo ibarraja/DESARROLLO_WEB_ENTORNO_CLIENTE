@@ -1,0 +1,33 @@
+:root{
+    --sprite-width:90px;
+    --sprite-height:90px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
+
+.number{
+    display: inline;
+    border: solid 1px red;
+    width: var(--sprite-width);
+    height: var(--sprite-height);
+    background-image: url(./unnamed.png);
+    background-repeat: no-repeat;
+    background-position-x: calc(-7*var(--sprite-width));
+    background-position-y: 0px;
+}
+
+[data-number]{
+    background-position-x: calc(-7*var(--sprite-width));
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <td onclick="showMessage(this)" data-color-german="rot">Rojo</td>
+            <td onclick="showMessage(this)" data-color-german="grun">Verde</td>
+            <td onclick="showMessage(this)" data-color-german="blau">Azul</td>
+        </tr>
+        <tr>
+            <td onclick="showMessage(this)" data-color-german="gelb">Amarillo</td>
+            <td onclick="showMessage(this)" data-color-german="celblau">Cyan</td>
+            <td onclick="showMessage(this)" data-color-german="magerot">Magenta</td>
+        </tr>
+    </table>
+
+    <br>
+    <p id="tParMessage">Color seleccionado: </p>
+    <script>
+        'use strict';
+        function showMessage(tag){
+            const nParagraph = document.getElementById('tParMessage');
+            const color = tag.innerHTML;
+            const germanColor = tag.dataset.colorGerman; 
+            nParagraph.innerHTML = "Color seleccionado: <strong>"+ color +"</strong> que en Alemán es <strong>"+germanColor+"</strong>.";
+        }
+    </script>
+</body>
+</html>

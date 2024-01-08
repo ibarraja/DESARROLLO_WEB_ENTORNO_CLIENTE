@@ -1,0 +1,19 @@
+table,tr,td {
+    border: solid 2px black;
+    border-collapse: collapse;
+}
+
+.receta {
+    padding-top: 20px;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex-grow: 1;
+    align-items: center;
+}

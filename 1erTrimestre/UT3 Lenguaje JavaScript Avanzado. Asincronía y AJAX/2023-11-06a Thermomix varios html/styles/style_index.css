@@ -1,0 +1,21 @@
+main{
+    display: grid;
+    place-items: center;
+}
+
+.mensaje-bienvenida{
+    /* border: 1px solid black; */
+    width: 60%;
+    font-size: 5rem;
+    display: inline;
+    text-align: center;
+
+    -webkit-line-clamp: 13;
+    display: -webkit-box;
+    line-height: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-500);
+}
+

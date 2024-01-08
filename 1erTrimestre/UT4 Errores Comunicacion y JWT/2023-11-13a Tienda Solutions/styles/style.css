@@ -1,0 +1,146 @@
+*,
+*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-family: 'Roboto Mono', monospace;
+    --color-000: white;
+    --color-100: lightgreen;
+    --color-500: green;
+    --color-900: darkgreen;
+}
+
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "footer"
+    ;
+}
+
+aside.ads-left,
+aside.ads-right{
+    display: none;
+}
+
+.page-header{
+    grid-area: header;
+    background-color: var(--color-900);
+    color: var(--color-000);
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.page-title{
+    flex-grow: 1;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.cart-button{
+    color: var(--color-100);
+}
+
+.cart-tabl{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    display: none;
+    background-color: #fff;
+    color: black;
+}
+
+.cart-button:hover + .cart-tabl{
+    display: block;
+
+}
+
+nav{
+    grid-area: nav;
+    background-color: var(--color-100);
+    color: var(--color-900);
+}
+
+
+nav>ul{
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main{
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+table,
+th, 
+tr, 
+td{
+    /* display: none; */
+    border: solid 2px blue;
+    border-collapse: collapse;
+}
+
+.tTdId
+
+footer{
+    background-color: var(--color-500);
+    color: var(--color-000);
+    grid-area: footer;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.spinner-waiting{
+    display: none;
+    width: 200px;
+    height: 200px;
+    border: solid 10px black;
+    border-right: none;
+    border-bottom: none;
+    /* border-radius: 50px; */
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    animation: dimensions 1s linear 0s infinite alternate both;
+}
+.spinner-waiting::before{
+    content: "";
+    background-color: var(--color-100);
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border: solid 10px black;
+    border-left: none;
+    border-top: none;
+    /* border-radius: 50px; */
+    position: absolute;
+    animation: dimensions 1s linear 0s infinite alternate both;
+}
+
+@keyframes dimensions {
+    from {
+        height: 0px;
+        width: 200px;
+    } to {
+        height: 200px;
+        width: 0px;
+    }
+    
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body style="background-color: grey;">
+    <h1>First Class Citizens</h1>
+    <h2>Funciones</h2>
+    <p>En Java Script, como en otros lenguajes como Java o Python, las funciones son ciudadanos de primer nivel. Es decir, son como los números o las cadenas de texto.</p>
+    <script>
+        'use strict';
+
+        function siete(){
+            return 7;
+        }
+
+        console.log(siete());
+
+        let seven = siete; //la variable 'seven' almacena la función, no el resultado de la función
+        <!-- console.log(seven()); -->
+        
+        let numero1 = siete(); //la variable 'numero1' almacena el resultado de la función
+        let numero2 = seven();
+
+
+        // ------------------------------------
+
+        function sumar(numero1, numero2){
+            let suma = numero1 + numero2;
+            return suma;
+        }
+
+        function restar(numero1, numero2){
+            let resta = numero1 - numero2;
+            return resta;
+        }
+
+        //CALLBACK -> una función que se pasa como atributo otra función
+        function operarYMostrarResultado(operacion, numero1, numero2){
+            let resultado = operacion(numero1, numero2);
+            console.log(`El resultado es ${resultado}`);
+            return resultado;
+        }   
+
+        operarYMostrarResultado(restar, 5, 2);
+        operarYMostrarResultado(sumar, 14, 2);
+
+    </script>
+    
+</body>
+</html>

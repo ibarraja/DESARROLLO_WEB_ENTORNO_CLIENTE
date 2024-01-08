@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Muestra la correspondiente función flecha (o función lambda) de las funciones:*/
+        
+        /*Ejercicio 1*/
+        /*function esPar(numero){
+            if(numero %2 === 0){
+                return True;
+            } else {
+                return false;
+            }
+        }
+
+        const esPar = numero => {if(numero%2 === 0){return true;} else {return false;}}
+        */
+        const esPar = numero => (numero%2 === 0) ? true : false;
+
+        console.log('¿Es Par 45?',esPar(45));
+        console.log('¿Es Par 46?',esPar(46));
+
+
+        let pares = [25, 98, 14, 27, 11, 37, 18, 36].filter(esPar);
+        console.log('Encuentra todos los pares:', pares);
+
+        console.log('Encuentra el primer Par:',[25, 98, 14, 27, 11, 37, 18, 36].find(esPar));
+        console.log('Encuentra al último Par:',[25, 98, 14, 27, 11, 37, 18, 36].findLast(esPar));
+        console.log('¿Hay algun par?',[25, 98, 14, 27, 11, 37, 18, 36].some(esPar));
+
+
+
+        /*Ejercicio 2*//*
+        function obtenerMaximo(numero1, numero2){
+            if (numero1 > numero2){
+                return numero1;
+            } else {
+                return numero2;
+            }
+        }
+        */
+        const obtenerMaximo = (numero1,numero2) => (numero1>numero2) ? numero1 : numero2;
+
+        console.log('¿Cuál es mas grande 25 o 63?',obtenerMaximo(25,63));
+        console.log('¿Cuál es mas grande 63 o 25?',obtenerMaximo(63,25));
+        console.log('¿Cuál es mas grande 50 o 50?',obtenerMaximo(50,50));
+
+        /*Ejercicio 3*//*
+        function obtenerCopyright() {
+            return 'Esta aplicación fue desarrollada en el I.E.S. Ramón Arcas Meca. No puede ser empleada sin su permiso.'
+        }
+        */
+
+        let obtenerCopyright = () => 'Esta aplicación fue desarrollada en el I.E.S. Ramón Arcas Meca. No puede ser empleada sin su permiso.';
+        console.log(obtenerCopyright());
+
+
+    </script>
+</body>
+</html>

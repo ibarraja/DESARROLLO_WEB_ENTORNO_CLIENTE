@@ -1,0 +1,59 @@
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+form {
+    background-color: cornflowerblue;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    gap: 0.5rem;
+    border-radius: 10px;
+    box-shadow: -20px 20px 22px grey;
+}
+
+form>header {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    grid-column: span 2;
+}
+
+.botonValidar {
+    grid-column: span 2;
+
+}
+
+form>input[type="text"], 
+form>input[type="password"]{
+    border: none;
+    outline: none;
+}
+form>input[type="text"]:focus, 
+form>input[type="password"]:focus{
+    border: none;
+    outline: solid 2px blue;
+}
+
+dialog{
+    overflow: hidden;
+}
+
+.spinner{
+    border-top: solid 50px red;
+    border-bottom: solid 50px green;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: giro 2s linear 0s infinite;
+}
+
+@keyframes giro{
+    from{
+        rotate: 0turn;
+    } to {
+        rotate: 1turn;
+    }
+}

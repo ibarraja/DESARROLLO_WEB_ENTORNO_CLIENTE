@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM. Botones de radio</title>
+</head>
+<body>
+    <form action="">
+        <h3>Género</h3>
+        <input type="radio" name="gender" id="tRadMale" value="ma">
+        <label for="tRadMale">
+            Masculino
+        </label>
+
+        <input type="radio" name="gender" id="tRadFemale" value="fe" checked>
+        <label for="tRadFemale">
+            Femenino
+        </label>
+
+        
+        <h3>Tipo de vía</h3>
+        <div id="tDivTypeOfStreet">
+            
+        </div>
+        
+        <input style="display: block; margin-top: 1em;" type="submit" value="Enviar Información">
+        <!-- La etiqueta button viene por defecto con el Type submit si el padre es un formulario, de ahora en adelante vamos a tratar de evitarlo modificando el type por el de button  -->
+        <!-- <button type="button">Enviar Información</button> -->
+    </form>
+    
+    <script src="./data.js"></script>
+    <script src="./code.js"></script>
+</body>
+</html>

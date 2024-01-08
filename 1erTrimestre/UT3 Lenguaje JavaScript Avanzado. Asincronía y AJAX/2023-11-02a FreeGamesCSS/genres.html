@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="./code.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Géneros de juegos</h1>
+    <table id="tTblGenres"></table>
+    <dialog id="tDlgMessage">
+        <button>Cerrar</button>
+        <div>Cerrar</div>
+        <h2>Géneros: MMORPG</h2>
+        <p>Juegos: cantidad</p>
+        <ol>
+            <li>1</li>
+            <li>2</li>
+        </ol>
+
+        
+    </dialog>
+    <script>
+        setTimeout(
+            function () {
+                document.querySelector('#tDlgMessage').showModal();
+            },
+            3000
+        )
+        setTimeout(
+            function () {
+                document.querySelector('#tDlgMessage').close();
+            },
+            6000
+        )
+    </script>
+</body>
+</html>

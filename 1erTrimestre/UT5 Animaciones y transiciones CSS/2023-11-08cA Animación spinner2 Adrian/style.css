@@ -1,0 +1,55 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+}
+
+dialog.spinner{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: solid 10px transparent;
+    border-top: solid 10px red;
+    border-bottom: solid 10px #000000;
+    border-radius: 50%;
+    animation-name: spinner;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    position: relative;
+}
+
+dialog.spinner::before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #572364;
+    border-radius: 50%;
+    top: 0;
+    z-index: 2;
+}
+
+dialog.spinner:focus{
+    outline: none;
+}
+
+@keyframes spinner {
+    from{
+        rotate: 0deg;
+        width: 100px;
+        height: 100px;
+    }
+    to{
+        rotate: 360deg;
+        width: 20px;
+        height: 20px;
+    }
+}

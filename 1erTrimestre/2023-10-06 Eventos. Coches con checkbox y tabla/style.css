@@ -1,0 +1,15 @@
+img{
+    max-width: 300px;
+    margin: 1em;
+}
+
+table{
+    border: solid ;
+    border-collapse: collapse;
+}
+
+
+tr, td, th{
+    border: solid;
+    border-collapse: collapse;
+}

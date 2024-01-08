@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+    <script type="module">
+        import {retrieveAndRenderBooks} from "./code.js";
+        document.addEventListener('DOMContentLoaded',_ =>{
+            retrieveAndRenderBooks();
+        });
+    </script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script type="module" src="./components/MiHeader.js"></script>
+    <script type="module" src="./components/MiNav.js"></script>
+    <script type="module" src="./components/MiFooter.js"></script>
+    
+</head>
+<body>
+    <mi-header></mi-header>
+    <mi-nav></mi-nav>
+    <main>
+        <ul id="tUlBooks"></ul>
+        <a href="./index.html">Ir a Indice</a>
+
+    </main>
+    <mi-footer></mi-footer>
+    
+</body>
+</html>

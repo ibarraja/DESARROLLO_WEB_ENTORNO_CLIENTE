@@ -1,0 +1,49 @@
+:root{
+    --sprite-width:90px;
+    --sprite-height:90px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
+
+.number{
+    display: inline;
+    /* border: solid 1px red; */
+    width: var(--sprite-width);
+    height: var(--sprite-height);
+    background-image: url(./unnamed.png);
+    background-repeat: no-repeat;
+    background-position-x: calc(-9*var(--sprite-width));
+    background-position-y: 0px;
+    /* animation-name: scroll;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both; */
+
+}
+
+[data-number]{
+    background-position-x: calc(-7*var(--sprite-width));
+}
+
+@keyframes scroll {
+    from{
+        background-position-y: 0px;
+        background-position-x: calc(-9*var(--sprite-width));
+    } to {
+        background-position-y: 0px;
+        background-position-x: 0px;
+    }
+}

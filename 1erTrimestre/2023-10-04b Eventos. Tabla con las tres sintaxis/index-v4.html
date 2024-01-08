@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td onclick="showMessage()" data-color-german="rot">Rojo</td>
+            <td onclick="showMessage()" data-color-german="grun">Verde</td>
+            <td onclick="showMessage()" data-color-german="blau">Azul</td>
+        </tr>
+        <tr>
+            <td onclick="showMessage()" data-color-german="gelb">Amarillo</td>
+            <td onclick="showMessage()" data-color-german="celblau">Celeste</td>
+            <td onclick="showMessage()" data-color-german="magerot">Magenta</td>
+        </tr>
+    </table>
+    <br>
+    <p id="tPMessage"></p>
+    <script>
+        'use strict';
+        function showMessage() {
+            let tag = event.target; // El evento actual
+
+            let nParagraph = document.getElementById('tPMessage');
+            let color = tag.innerHTML;
+            let germanColor = tag.dataset.colorGerman;
+            nParagraph.innerHTML = `Has hecho click en el color <b>${color}</b>,
+            en alemán es <b>${germanColor}</b>`;
+        }
+    </script>
+</body>
+</html>

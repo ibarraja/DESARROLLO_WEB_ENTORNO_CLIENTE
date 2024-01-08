@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Botones de Selección Múltiple</title>
+
+    <style> 
+        * {
+            user-select:none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Aficiones</h2>
+
+    <form>
+        <input type="checkbox" name="sports" id="tChkSports" value="yes"> 
+        <label for="tChkSports">Deportes</label>
+
+        <input type="checkbox" name="cinema" id="tChkCinema" value="yes"> 
+        <label for="tChkCinema">Cine</label>
+        
+        <input type="checkbox" name="dancing" id="tChkDancing" value="yes"> 
+        <label for="tChkDancing">Baile</label>
+        
+        <input type="checkbox" name="regaeton" id="tChkRegaeton" value="yes"> 
+        <label for="tChkRegaeton">Regaeton</label>
+
+        <input type="submit" value="Enviar datos" style="display: block;margin-top:1rem;">
+    </form>
+    
+    <h2>Categorias profesionales</h2>
+    <div class="tDivCategories"></div>
+
+    <script type="module" src="./code.js"></script>
+</body>
+</html>

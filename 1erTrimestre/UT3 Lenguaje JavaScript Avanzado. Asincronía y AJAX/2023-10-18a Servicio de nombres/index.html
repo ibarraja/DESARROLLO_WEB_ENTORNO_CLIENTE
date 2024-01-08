@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./code.js"></script>
+</head>
+<body>
+
+    <header>Nombre</header>
+
+    <main>
+        <div class="container">
+            <div>
+                <label for="num">¿Cuántos nombres quieres?</label>
+                <input type="number" id="tInputQuantity" value="1" min="1" max="10">
+            </div>
+
+            <fieldset>
+                <legend>Género</legend>
+                
+                <input type="radio" name="genre" id="tRadMale" value="male">
+                <label for="tRadMale">Masculino</label>
+                
+                <input type="radio" name="genre" id="tRadFemale" value="female">
+                <label for="tRadFemale">Femenino</label>
+                
+                <input type="radio" name="genre" id="tRadBoth" value="both" checked>
+                <label for="tRadBoth">Ambos</label>
+            </fieldset>
+
+            <button id="tButtonShowNames">Pedir nombres</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombres</th>
+                    </tr>
+                </thead>
+                <tbody id="tBdyNames"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>©️ Javier Ibarra 2023</footer>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body style="background-color: grey;">
+    <h1>Arreglos u arrays</h1>
+    <script>
+        'use strict';
+
+        //PRIMERA FORMA. Literal de arrays/arreglos.
+        let diasSemana = [
+            'Lunes', 
+            'Martes', 
+            'Miercoles', 
+            'Jueves', 
+            'Viernes', 
+            'Sábado', 
+            'Domingo',
+        ];
+
+        console.log(diasSemana);     //forma poco util
+        console.table(diasSemana);   //forma INCREÍBLE
+
+        //SEGUNDA FORMA. Asignación de espacios
+        let frutas = [];
+        frutas[0] = '🍌';
+        frutas[1] = '🥝';
+        frutas[2] = '🍑';
+        frutas[3] = '🍎';
+        frutas[4] = '🍐';
+        frutas[5] = '🍈';
+        frutas[6] = '🍉';
+
+        console.table(frutas)
+
+        //TERCERA FORMA. Clase Array
+        let alumnos = new Array();
+        alumnos.push('Martín');
+        alumnos.push('Nuria');
+        alumnos.push('Adrián');
+        alumnos.push('Javi');
+        alumnos.push('Álvaro','Alejandro');
+        alumnos.push('Juan','Jesús');
+
+        console.table(alumnos);
+
+        //CUARTA FORMA. Array asociativo
+        let mesesDelAnio = [];
+        mesesDelAnio['en'] = 'Enero';
+        mesesDelAnio['fe'] = 'Febrero';
+        mesesDelAnio['mr'] = 'Marzo';
+        mesesDelAnio['ab'] = 'Abril';
+        mesesDelAnio['my'] = 'Mayo';
+        mesesDelAnio['jn'] = 'Junio';
+
+        console.table(mesesDelAnio);
+
+    </script>
+</body>
+</html>

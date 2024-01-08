@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        import { PeopleRepository } from './modules/PeopleRepository.js';
+        
+        document.addEventListener('DOMContentLoaded',(_) => {
+            const repository = new PeopleRepository();
+            const hairColors = repository.getHairColors();
+            fillHairColorsRadios(hairColors);
+        });
+
+        function fillHairColorsRadios(colors){
+            let nDiv = document.getElementById('tDivHairColors');
+            
+            colors.forEach(color => {
+                let colorCapitalize = color.charAt(0).toUpperCase() + color.slice(1);
+                
+                let nRadio = document.createElement('input');
+                nRadio.setAttribute('type','radio');
+                nRadio.setAttribute('id',`tRad${colorCapitalize}`);
+                nRadio.setAttribute('name','hairColor');
+                nRadio.setAttribute('value', color);
+                // nRadio.setAttribute('onchange', `showPeopleByHairColor('${color}')`);
+                // nRadio.onchange = showPeopleByHairColor;
+                nRadio.addEventListener('change', showPeopleByHairColor);
+
+
+                
+                let nLabl = document.createElement('label');
+                nLabl.setAttribute('for',`tRad${colorCapitalize}`);
+
+                let nText = document.createTextNode(color);
+
+                nLabl.appendChild(nText);
+                nDiv.appendChild(nRadio);
+                nDiv.appendChild(nLabl);
+
+            })
+
+            function showPeopleByHairColor(e){
+                const nRadio = e.target; /* tag that trigger the event */
+                const color = nRadio.value;
+
+                people = repository.getPeopleByHairColor(color);
+                fillPeopleList(people);
+                
+            }
+
+            // nOl = document.createElement('ol');
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Los colores de pelo de los trabajadores</h1>
+    </header>
+    <h3>Solo los rubios son los buenos</h3>
+    <div id="tDivHairColors">
+
+    </div>
+    <ol id="tOlPeople"></ol>
+</body>
+</html>

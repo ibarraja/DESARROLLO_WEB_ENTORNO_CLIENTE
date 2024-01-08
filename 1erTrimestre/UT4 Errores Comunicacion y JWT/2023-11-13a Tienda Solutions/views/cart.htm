@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesta</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script type="module" src="./cart.js"></script>
+</head>
+<body>
+    <header class="page-header">
+        <div class="page-title">Cesta</div>
+        <div class="cart-button" id="tDivCartButton"><a href="./cart.htm">🛒</a></div>
+        <div class="cart-tabl" id="tDivCartTable">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+            <header>Cesta</header>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Precio</td>
+                    </tr>
+                </thead>
+                <tbody id="tTblBodyCart"></tbody>
+            </table>
+        </div>
+        
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/views/master.htm">Maestro de tablas</a></li>
+            <li><a href="/views/categories.htm">Categorias</a></li>
+            <li><a href="products.htm">Productos</a></li>
+            <li><a href="/views/pdfs.htm">Listados</a></li>
+        </ul>
+    </nav>
+    <main>
+        <p>Carrito de la compra</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody id="tTablBodyCart">
+
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

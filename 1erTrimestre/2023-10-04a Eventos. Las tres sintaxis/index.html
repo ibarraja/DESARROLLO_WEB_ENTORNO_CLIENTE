@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-size: 2rem;
+            border: solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- Primera sintaxis. Poner el evento en la propia etiqueta -->
+    <p onclick='alert("Has clickeado el párrafo");'>Este es el párrafo 1. No te atrevas a hacer click...</p>
+    
+    <p onmouseover="mostrarMensajeDos();">Este es el párrafo 2. No pases el cursor, es lava.</p>
+
+    <p onmouseover="console.log('Dentro')" onmouseout="console.log('Fuera')">Este es el párrafo 3. Entra y sal, si tienes lo que hay que tener. Pero mira tambien la consola...</p>
+
+    <p id = "tParFour">Este es el párrafo 4. ¿¿¿Esto es como el párrafo 1???</p>
+    
+    <p id = "tParFive">Este es el párrafo 5. ¿¿¿Otra vez, NANI???</p>
+
+    <script>
+        'use strict'
+
+        function mostrarMensajeDos(){
+            alert('Has entrado en el párrafo dos');
+        }
+
+        function mostrarMensajeCuatro(){
+            alert('Has hecho algo en este párrafo... hentai! Yamete curasae');
+        }
+
+        const nParagraph4 = document.getElementById('tParFour');
+        // nParagraph4.setAttribute('onclick','mostrarMensajeCuatro()');
+        // Segunda sintaxis: Se recupera la etiqueta y el evento se configura como un objeto.
+        nParagraph4.onclick = mostrarMensajeCuatro;
+
+        //Tercera sintaxis: la que es igual a JAva, y la favorita del maestro
+        const nParagraph5 = document.getElementById('tParFive');
+        nParagraph5.addEventListener('click', () => alert('Has hecho click, nii-chan'));
+        nParagraph5.addEventListener('click', () => conosle.log('Has hecho click, nii-chan'));
+        //Este metodo gusta tanto, pq puedo poner tantos observers como queramos. Ademas es el que aparece en Java.
+
+    </script>
+</body>
+</html>
