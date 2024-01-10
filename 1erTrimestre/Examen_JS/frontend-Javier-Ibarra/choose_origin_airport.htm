@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlightsBooking ✈️</title>
+    <!-- <script type="module" src="./choose_origin_airport.js"></script> -->
+    <script type="module">
+        import { FlightsServices } from "./services/FlightsServices.js";
+        import { openSpinner } from "./spinner.lib.js";
+
+        document.addEventListener('DOMContentLoaded', setup);
+
+        function setup(_) {
+            renderUsername();
+
+            retrieveAndRenderAirpots();
+
+            selectAirtportAndRedirect();
+        }
+
+        function renderUsername() {
+            let token = window.sessionStorage.getItem('token');
+
+            if (token === null){
+                alert('ERROR: no hay usuario registrado. Redirigiendo a index.htm');
+                window.location = './index.htm';
+            }
+
+            //DecodeToken()
+            const parseJwt = token => {
+                try {
+                    return JSON.parse(atob(token.split('.')[1]));
+                } catch (error) {
+                    throw new Error(`Problem decoding token "${token}": ${error.message}.`);
+                }
+            }
+            const tokenDecodificado = parseJwt(token);
+            console.log(tokenDecodificado);
+
+            let nDiv = document.querySelector('#tDivUsername');
+            nDiv.textContent = tokenDecodificado.firstname + ' ' + tokenDecodificado.lastname;
+        }
+
+        async function retrieveAndRenderAirpots() {
+            openSpinner();
+            let token = window.sessionStorage.getItem('token');
+
+            let nSel = document.querySelector('#tSelAirports');
+
+            //Retrieving Airpots
+            let service = new FlightsServices();
+            let airports = await service.getAirpots(token);
+
+            // console.table(airports);
+            // alert("tabla creada");
+            
+
+            //Render Airpots
+            airports.forEach(airport => {
+                let nOption = document.createElement('option');
+                nSel.appendChild(nOption);
+                nOption.textContent = `${airport.commonname} (${airport.codename})`;
+                nOption.value = airport.uuid;
+            });
+        }
+
+        function selectAirtportAndRedirect() {
+            let nSelect = document.querySelector('#tSelAirports')
+
+            let nBut = document.querySelector('#tButSelectAirport');
+            nBut.addEventListener('click', _ => {
+                let idAirport = nSelect.value;
+                //alert(idAirport);
+
+                //Session Storage
+                window.sessionStorage.setItem('airport', idAirport);
+
+                //Redirectioning
+                window.location.href = './choose_destination_airport.htm?origin_airport=' + idAirport;
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="tDivUsername"></div>
+        <h1>
+            FlightsBooking ✈️
+        </h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="./index.htm">Inicio</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        Aeropuertos de salida
+
+    </main>
+
+    Seleccione el aeropuerto de salida del vuelo:
+    <form id="tForFormulario">
+        <select id="tSelAirports" size="4">
+        </select>
+        <!-- <input type="submit" id="tSub" value="Aeropuerto de salida seleccionado"> -->
+    </form>
+
+    <button id="tButSelectAirport">Aeropuerto de salida seleccionado</button>
+
+
+</body>
+
+</html>

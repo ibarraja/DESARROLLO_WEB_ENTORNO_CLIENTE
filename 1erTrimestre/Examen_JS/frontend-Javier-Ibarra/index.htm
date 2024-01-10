@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlightsBooking ✈️</title>
+    <script type="module">
+        import { AuthenticationService } from "./services/AuthenticationService.js";
+        import { openSpinner, closeSpinner } from "./spinner.lib.js";
+        document.addEventListener("DOMContentLoaded", setup);
+
+        function setup(_) {
+            let nButton = document.querySelector("#tButValidate");
+            nButton.addEventListener("click", validateUser);
+        }
+
+        async function validateUser() {
+            openSpinner();
+            //Getting the username and the password
+            let username = document.querySelector("#tTxtUsername").value;
+            let password = document.querySelector("#tPasPassword").value;
+
+            //Initializing the service
+
+            let service = new AuthenticationService();
+            let token = await service.validateUser(username, password);
+
+            try {
+                window.sessionStorage.setItem("token", token);
+                //alert("todoOk");
+                window.location.href = "./choose_origin_airport.htm";
+            } catch (error) {
+                alert(error);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        FlightsBooking ✈️
+    </header>
+    <main>Bienvenido a nuestra web de reserva de vuelos</main>
+
+    <label for="tTxtUsername">Ususario:</label>
+    <input type="text" id="tTxtUsername" placeholder="Usuario" value="natalia.figueroa" />
+
+    <label for="tPasPassword">Contraseña:</label>
+    <input type="password" id="tPasPassword" placeholder="Contraseña" value="Hola1234" />
+
+    <button id="tButValidate">Validar</button>
+</body>
+
+</html>

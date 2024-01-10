@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlightsBooking ✈️</title>
+    <style>
+        table,
+        th,
+        td,
+        tr {
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script type="module" src="./choose_flights.js"></script>
+    <script type="module">
+        import { FlightsServices } from "./services/FlightsServices.js";
+        import { closeSpinner, openSpinner } from "./spinner.lib.js";
+        document.addEventListener('DOMContentLoaded', setup);
+
+        function setup(_) {
+            renderUsername();
+            renderDepartureAirport();
+            renderDestinyAirport();
+            retrieveAndRenderFlights();
+        }
+
+        function renderUsername() {
+            let token = window.sessionStorage.getItem('token');
+
+            //Checking token existance
+            if (token === null) {
+                alert('ERROR: no hay usuario registrado. Redirigiendo a index.htm');
+                window.location = './index.htm';
+            }
+
+            //Decode token
+            const parseJwt = token => {
+                try {
+                    return JSON.parse(atob(token.split('.')[1]));
+                } catch (error) {
+                    throw new Error(`Problem decoding token "${token}": ${error.message}.`);
+                }
+            }
+            const tokenDecodificado = parseJwt(token);
+            // console.log(tokenDecodificado);
+
+            let nDiv = document.querySelector('#tDivUsername');
+            nDiv.textContent = tokenDecodificado.firstname + ' ' + tokenDecodificado.lastname;
+        }
+
+
+        async function renderDepartureAirport() {
+            openSpinner();
+
+            let token = window.sessionStorage.getItem('token');
+            let airportId = window.sessionStorage.getItem('airport');
+
+            let service = new FlightsServices();
+            let airportInfo = await service.getAirportById(token, airportId);
+
+            console.log(airportInfo);
+
+            let nDiv = document.querySelector('#tDivDeparture');
+            nDiv.textContent = airportInfo.longname;
+        }
+
+        async function renderDestinyAirport() {
+            openSpinner();
+            const params = new URLSearchParams(window.location.search);
+            const airportId = params.get('destination_airport');
+
+            let token = window.sessionStorage.getItem('token');
+
+            let service = new FlightsServices();
+            let airportInfo = await service.getAirportById(token, airportId);
+
+            console.log(airportInfo);
+
+            let nDiv = document.querySelector('#tDivDestiny');
+            nDiv.textContent = airportInfo.longname;
+        }
+
+
+        async function retrieveAndRenderFlights() {
+            openSpinner();
+            let token = window.sessionStorage.getItem('token');
+
+
+            const params = new URLSearchParams(window.location.search);
+
+            let idDeparture = params.get('origin_airport');
+            let idArrival = params.get('destination_airport');
+
+            let service = new FlightsServices();
+            let flights = await service.getFlightsInfo(token, idDeparture, idArrival);
+
+
+            console.table(flights);
+            //render Flights info
+            let nTable = document.querySelector('#tTblFlights');
+
+            flights.forEach(flight => {
+                let nTr = document.createElement('Tr');
+                nTable.appendChild(nTr);
+
+                let nTduuid = document.createElement('td');
+                nTr.appendChild(nTduuid);
+                nTduuid.textContent = flight.flightCode;
+
+
+                let nTdOrigin = document.createElement('td');
+                nTr.appendChild(nTdOrigin);
+                nTdOrigin.textContent = flight.datetime;
+
+                let nTdPrice = document.createElement('td');
+                nTr.appendChild(nTdPrice);
+                nTdPrice.textContent = flight.flightPrice;
+
+                let nTdPriceSuitcase = document.createElement('td');
+                nTr.appendChild(nTdPriceSuitcase);
+                nTdPriceSuitcase.textContent = flight.suitcasePrice;
+
+                let nButton = document.createElement('button');
+                nButton.textContent = '+';
+
+                let nTdBut = document.createElement('td');
+                nTr.appendChild(nTdBut);
+                nTdBut.textContent = nButton;
+
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="tDivUsername"></div>
+        <h1>
+            FlightsBooking ✈️
+        </h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./index.htm">Inicio</a></li>
+            <li><a href="./choose_origin_airport.htm">Aeropuertos de salida</a></li>
+            <li><a href="./choose_destination_airport.htm">Aeropuertos de destino</a></li>
+        </ul>
+    </nav>
+
+    <h2>
+        Vuelos
+    </h2>
+
+    Salida en
+    <div id="tDivDeparture" style="font-weight: bold;"></div>
+    Llegada en
+    <div id="tDivDestiny" style="font-weight: bold;"></div>
+
+
+    Seleccione los vuelos que desea reservar:
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Fecha hora</th>
+                <th>Precio vuelo</th>
+                <th>Precio maleta</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tTblFlights"></tbody>
+    </table>
+
+</body>
+
+</html>
