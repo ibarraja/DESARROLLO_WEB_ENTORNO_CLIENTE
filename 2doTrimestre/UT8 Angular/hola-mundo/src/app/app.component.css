@@ -1,0 +1,25 @@
+.wrapper * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    --angular-red: red;
+    border: solid 5px var(--angular-red);
+    border-radius: 15px;
+    margin: 25px;
+    padding: 25px;
+}
+
+.wrapper h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    
+}
+
+.wrapper h2 {
+    text-align: center;
+
+}
